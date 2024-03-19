@@ -2,7 +2,7 @@ import { Command } from "commander";
 const program = new Command();
 import inquirer from "inquirer";
 
-import { addCar } from "./carIndex.js";
+import { addCar, listCars, updateCar, removeCar } from "./helpers/carIndex.js";
 
 // Car Questions
 const questions = [
@@ -32,5 +32,25 @@ program
   .action(() => {
     inquirer.prompt(questions).then((answers) => addCar(answers));
   });
+
+program
+  .command("list")
+  .alias("l")
+  .description("List all cars")
+  .action(listCars);
+
+program
+  .command("update <_id>")
+  .alias("u")
+  .description("Update a car")
+  .action((_id) => {
+    inquirer.prompt(questions).then((answers) => updateCar(_id, answers));
+  });
+
+program
+  .command("remove <_id>")
+  .alias("r")
+  .description("Remove a car")
+  .action(removeCar);
 
 program.parse(process.argv);
