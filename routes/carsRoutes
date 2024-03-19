@@ -2,10 +2,14 @@ const express = require("express");
 const carsControllers = require("../controllers/carsControllers");
 const router = express.Router();
 
-router.get("/get-image", carsControllers.getAllCars);
+router.get("/get-cars", carsControllers.getAllCars);
 
-router.get("/get-image/:model", carsControllers.getCarModel);
+router.get("/get-cars-by-model", carsControllers.getCarModel);
 
-// router.get("/get-image/:year", carsControllers.getCarYear);
+router.get("/get-cars-by-year", carsControllers.getCarYear);
+
+router.get("/search", carsControllers.findOneCar);
+
+router.get("/search-all", carsControllers.findAllCarsModelYear);
 
 module.exports = router;
