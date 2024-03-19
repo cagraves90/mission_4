@@ -1,0 +1,11 @@
+const express = require("express");
+const carsControllers = require("../controllers/carsControllers");
+const router = express.Router();
+
+router.get("/get-image", carsControllers.getAllCars);
+
+router.get("/get-image/:model", carsControllers.getCarModel);
+
+// router.get("/get-image/:year", carsControllers.getCarYear);
+
+module.exports = router;
