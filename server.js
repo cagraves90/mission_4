@@ -2,12 +2,10 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 
 /* ============== Middleware ================== */
 app.use(cors());
-app.use(express.json({ limit: "200kb" })); // to ensure that larger files can get uploaded
-app.use(bodyParser.json());
+app.use(express.json());
 
 // // ---------------------------------------------- MongoDB connection ----------------------------------------------
 
