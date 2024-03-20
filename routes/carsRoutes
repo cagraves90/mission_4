@@ -8,8 +8,6 @@ router.get("/get-cars-by-model", carsControllers.getCarModel);
 
 router.get("/get-cars-by-year", carsControllers.getCarYear);
 
-router.get("/search", carsControllers.findOneCar);
-
 router.get("/search-all", carsControllers.findAllCarsModelYear);
 
 module.exports = router;
